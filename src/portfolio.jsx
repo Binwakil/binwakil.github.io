@@ -124,7 +124,7 @@ const publications = [
     { type: 'Conference', title: 'Safeguarding Smart Inhaler Devices and Patient Privacy in Respiratory Health Monitoring.', venue: 'In Proc. 20th International Conference on Cyber Warfare and Security (ICCWS), 2025.', authors: 'Asaju, B. J., Wakili, A. А.' },
     { type: 'Conference', title: 'LLM-Based Framework for Next-Generation Cyber Threat Detection.', venue: 'In IJCAI-25 Workshop on AI for Time Series (AI4TS), 2025.', authors: 'Hussaini, A., Wakili, A. A., Musa, U. S., and Yu, W.' },
     { type: 'Conference', title: 'TwinSegNet: A Digital Twin-Enabled Federated Learning Framework for Collaborative Brain Tumor Analysis.', venue: 'In IEEE Vehicular Technology Conference (VCC), 2025.', authors: 'Wakili, A. A., et al.' },
-    { type: 'Preprint', title: 'Tumor VisNet: A Hybrid CNN + Vision Transformer Model for Enhanced Brain Tumor Segmentation.', venue: 'Submitted to IEEE International Conference on Biomedical and Health Informatics (BHI), 2025.', authors: 'Wakili, A. A., et al.', status: 'Under Review' },
+    { type: 'Preprint', title: 'Tumor VisNet: A Hybrid CNN + Vision Transformer Model for Enhanced Brain Tumor Segmentation.', venue: 'Submitted to IEEE International Conference on Biomedical and Health Informatics (BHI), 2025.', authors: 'Wakili, Almustapha. A., et al.', status: 'Under Review' },
     { type: 'Preprint', title: 'Advancing IoT Security: Machine Learning Strategies for Power Consumption-Based Botnet Detection.', venue: 'Submitted to IEEE International Conference on Security, 2025.', authors: 'Wakili, A. A., et al.', status: 'Under Review' },
 ];
 
