@@ -232,7 +232,7 @@ const AnimatedSection = ({ children, id }) => {
 function Header({ theme, toggleTheme, setCurrentPage }) {
     const [isOpen, setIsOpen] = useState(false);
     const navLinks = [
-        { id: 'home', label: "Home" },
+        { id: 'home', label: "About" },
         { id: 'experience', label: "Experience" },
         { id: 'research', label: "Research"},
         { id: 'teaching', label: "Teaching" },
