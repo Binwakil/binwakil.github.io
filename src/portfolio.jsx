@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 // --- ICONS (as inline SVGs) ---
 const GithubIcon = (props) => (
@@ -27,6 +29,19 @@ const CVIcon = (props) => (
         <path d="M4.5 3h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zM4.5 5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zM4.5 7h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z"/>
     </svg>
 );
+
+// --- SEO Component ---
+const SEO = ({ title, description }) => (
+    <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+    </Helmet>
+);
+
 
 // --- DATA ---
 const educationHistory = [
@@ -122,6 +137,10 @@ const ResearchPublicationsSection = () => {
 
     return (
         <section id="research" className="mb-12 scroll-mt-20">
+            <SEO 
+                title="Research & Publications | Almustapha Wakili"
+                description="Explore the research and publications of Almustapha Wakili, focusing on AI in healthcare, non-invasive monitoring with WiFi CSI, medical imaging, and IoMT security."
+            />
             <ResearchOverviewSection />
             <div className="flex justify-between items-center mb-4">
                  <h3 className="text-xl font-bold text-gray-800">Publications</h3>
@@ -172,6 +191,10 @@ const SelectedPublicationsSection = () => {
 
 const EducationSection = () => (
     <section id="education" className="mb-12 scroll-mt-20">
+         <SEO 
+            title="Education | Almustapha Wakili"
+            description="View the academic background of Almustapha Wakili, including his Ph.D. candidacy at Towson University and degrees in Computer Science and Software Engineering."
+        />
         <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Education</h2>
         <ul className="space-y-6">
             {educationHistory.map((item, index) => (
@@ -274,6 +297,10 @@ const SkillsSection = () => (
 // --- PAGE COMPONENTS ---
 const AboutPage = () => (
     <main>
+        <SEO 
+            title="About | Almustapha Wakili | AI Researcher"
+            description="Learn about Almustapha Wakili, an AI Researcher and Ph.D. candidate. Explore his background, research interests in Smart & Connected Health, education, and experience."
+        />
         <AboutSection />
         <ResearchOverviewSection />
         <EducationSection />
@@ -288,6 +315,10 @@ const AboutPage = () => (
 
 const ExperienceTeachingPage = () => (
     <>
+        <SEO 
+            title="Experience & Mentorship | Almustapha Wakili"
+            description="Detailed professional and teaching experience of Almustapha Wakili, including roles as a Research Assistant, Lecturer, and Software Engineer."
+        />
         <ExperienceSection />
         <TeachingSection />
     </>
@@ -300,7 +331,7 @@ const navLinks = [
 ];
 
 // --- MAIN APP COMPONENT ---
-export default function App() {
+function Portfolio() {
     const [currentPage, setCurrentPage] = useState('about');
 
     const renderPage = () => {
@@ -337,22 +368,30 @@ export default function App() {
                             
                             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500">
                                 <a href="https://scholar.google.com/citations?user=Yt2DrTYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-600"><GoogleScholarIcon className="mr-1.5" /> Google Scholar</a>
-                                <a href="https://github.com/awakili" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-600"><GithubIcon className="mr-1.5" /> GitHub</a>
+                                <a href="https://github.com/Binwakil" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-600"><GithubIcon className="mr-1.5" /> GitHub</a>
                                 <a href="http://linkedin.com/in/binwakili/" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-600"><LinkedinIcon className="mr-1.5" /> LinkedIn</a>
                                 <a href="mailto:awakili@towson.com" className="flex items-center hover:text-blue-600"><EmailIcon className="mr-1.5" /> Email</a>
-                                <a href="./CV___Resume__Wakili (2).pdf" download className="flex items-center hover:text-blue-600"><CVIcon className="mr-1.5" /> CV</a>
+                                <a href="/CV___Resume__Wakili (2).pdf" download className="flex items-center hover:text-blue-600"><CVIcon className="mr-1.5" /> CV</a>
                             </div>
                         </div>
                         <img 
-                            src="https://placehold.co/128x128/e2e8f0/334155?text=AW" 
-                            alt="Almustapha Wakili" 
-                            className="rounded-full w-24 h-24 sm:w-32 sm:h-32 mb-4 sm:mb-0 object-cover border-4 border-gray-200"
+                            src="/profile-photo.jpg" 
+                            alt="AW" 
+                            className="rounded-full w-32 h-32 sm:w-48 sm:h-48 mb-4 sm:mb-0 object-cover border-2 border-gray-200"
                         />
                     </div>
                 </header>
                 {renderPage()}
             </div>
         </div>
+    );
+}
+
+export default function App() {
+    return (
+        <HelmetProvider>
+            <Portfolio />
+        </HelmetProvider>
     );
 }
 
